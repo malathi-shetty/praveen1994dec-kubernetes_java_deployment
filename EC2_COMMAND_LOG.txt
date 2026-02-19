@@ -1,0 +1,243 @@
+    1  2026-02-19 11:10:00 sudo systemctl restart docker
+    2  2026-02-19 11:10:07 docker ps
+    3  2026-02-19 11:10:14 minikube start --driver=docker
+    4  2026-02-19 11:11:53 cd /opt
+    5  2026-02-19 11:11:53 sudo wget https://archive.apache.org/dist/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+    6  2026-02-19 11:12:05 sudo tar -xvzf apache-maven-3.9.9-bin.tar.gz
+    7  2026-02-19 11:12:08 sudo vi /etc/profile.d/maven.sh
+    8  2026-02-19 11:12:40 source /etc/profile.d/maven.sh
+    9  2026-02-19 11:12:40 mvn -version
+   10  2026-02-19 11:12:48 cd ~
+   11  2026-02-19 11:12:48 curl -LO https://amazon-eks.s3.us-west-2.amazonaws.com/1.20.4/2021-04-12/bin/linux/amd64/kubectl
+   12  2026-02-19 11:12:55 chmod +x kubectl
+   13  2026-02-19 11:12:55 mkdir -p $HOME/bin
+   14  2026-02-19 11:12:55 mv kubectl $HOME/bin/
+   15  2026-02-19 11:12:55 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+   16  2026-02-19 11:12:55 source ~/.bashrc
+   17  2026-02-19 11:13:02 kubectl version --client
+   18  2026-02-19 11:13:50 cd ~
+   19  2026-02-19 11:13:58 git clone https://github.com/malathi-shetty/praveen1994dec-kubernetes_java_deployment.git
+   20  2026-02-19 11:15:28 cd kubernetes_java_deployment
+   21  2026-02-19 11:15:28 ls
+   22  2026-02-19 11:15:56 cd praveen1994dec-kubernetes_java_deployment
+   23  2026-02-19 11:15:58 ls
+   24  2026-02-19 11:16:10 cd shopfront
+   25  2026-02-19 11:16:10 mvn clean install -DskipTests
+   26  2026-02-19 11:16:38 docker build -t shettymalathi113/shopfront:latest .
+   27  2026-02-19 11:16:39 docker push shettymalathi113/shopfront:latest
+   28  2026-02-19 11:16:39 cd ..
+   29  2026-02-19 11:16:53 cd productcatalogue
+   30  2026-02-19 11:16:53 mvn clean install -DskipTests
+   31  2026-02-19 11:17:19 docker build -t shettymalathi113/productcatalogue:latest .
+   32  2026-02-19 11:17:19 docker push shettymalathi113/productcatalogue:latest
+   33  2026-02-19 11:17:19 cd ..
+   34  2026-02-19 11:17:37 cd stockmanager
+   35  2026-02-19 11:17:37 mvn clean install -DskipTests
+   36  2026-02-19 11:17:59 docker build -t shettymalathi113/stockmanager:latest .
+   37  2026-02-19 11:18:00 docker push shettymalathi113/stockmanager:latest
+   38  2026-02-19 11:18:00 cd ..
+   39  2026-02-19 11:23:55 git remote set-url origin git@github.com:malathi-shetty/praveen1994dec-kubernetes_java_deployment
+   40  2026-02-19 11:24:01 git status
+   41  2026-02-19 11:25:25 git remote set-url origin https://shettymalathi113:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA6clML2TdJo/B5m7oG+7MwTZqzeW6RwMVkneh5Qet42 shettymalathi113@gmail.com@github.com/malathi-shetty/praveen1994dec-kubernetes_java_deployment
+   42  2026-02-19 11:27:16 cd praveen1994dec-kubernetes_java_deployment
+   43  2026-02-19 11:27:16 git status
+   44  2026-02-19 11:27:35 git remote set-url origin https://github.com/malathi-shetty/praveen1994dec-kubernetes_java_deployment.git
+   45  2026-02-19 11:27:57 cd ~/praveen1994dec-kubernetes_java_deployment
+   46  2026-02-19 11:27:57 git status
+   47  2026-02-19 11:28:10 git add .
+   48  2026-02-19 11:28:53 git reset
+   49  2026-02-19 11:28:58 git status
+   50  2026-02-19 11:29:07 vi .gitignore
+   51  2026-02-19 11:29:24 git add .gitignore
+   52  2026-02-19 11:29:24 git commit -m "Added .gitignore to ignore build artifacts"
+   53  2026-02-19 11:29:33 git rm -r --cached productcatalogue/target
+   54  2026-02-19 11:29:33 git rm -r --cached shopfront/target
+   55  2026-02-19 11:29:33 git rm -r --cached stockmanager/target
+   56  2026-02-19 11:29:39 git commit -m "Removed target build files from repository"
+   57  2026-02-19 11:29:45 git push origin main
+   58  2026-02-19 11:30:42 ls -al ~/.ssh
+   59  2026-02-19 11:30:52 ssh -T git@github.com
+   60  2026-02-19 11:31:17 git remote -v
+   61  2026-02-19 11:31:28 git remote set-url origin git@github.com:malathi-shetty/praveen1994dec-kubernetes_java_deployment.git
+   62  2026-02-19 11:31:36 git push origin main
+   63  2026-02-19 11:31:45 ssh-keygen -t ed25519 -C "shettymalathi113@gmail.com"
+   64  2026-02-19 11:32:00 cat ~/.ssh/id_ed25519.pub
+   65  2026-02-19 11:33:02 git push origin main
+   66  2026-02-19 11:33:16 clear
+   67  2026-02-19 11:33:24 ls -al ~/.ssh
+   68  2026-02-19 11:33:30 git remote -v
+   69  2026-02-19 11:33:34 ssh -T git@github.com
+   70  2026-02-19 11:34:26 git push origin main
+   71  2026-02-19 11:34:48 chown ec2-user:ec2-user ~/.ssh/id_ed25519*
+   72  2026-02-19 11:34:48 chmod 600 ~/.ssh/id_ed25519
+   73  2026-02-19 11:34:48 chmod 644 ~/.ssh/id_ed25519.pub
+   74  2026-02-19 11:35:22 git pull origin main --rebase
+   75  2026-02-19 11:35:31 git push origin main
+   76  2026-02-19 14:54:56 docker build -t shettymalathi113/productcatalogue:latest .
+   77  2026-02-19 14:55:03 ls
+   78  2026-02-19 14:55:24 cd ~/kubernetes_java_deployment/productcatalogue
+   79  2026-02-19 14:55:43 cd productcatalogue
+   80  2026-02-19 14:55:50 docker build -t shettymalathi113/productcatalogue:latest .
+   81  2026-02-19 15:01:17 ls
+   82  2026-02-19 15:01:27 mvn clean package -DskipTests
+   83  2026-02-19 15:01:41 ls target
+   84  2026-02-19 15:01:50 docker build -t shettymalathi113/productcatalogue:latest .
+   85  2026-02-19 15:02:03 docker push shettymalathi113/productcatalogue:latest
+   86  2026-02-19 15:02:21 cd ../shopfront
+   87  2026-02-19 15:02:21 mvn clean package -DskipTests
+   88  2026-02-19 15:02:28 docker build -t shettymalathi113/shopfront:latest .
+   89  2026-02-19 15:02:30 docker push shettymalathi113/shopfront:latest
+   90  2026-02-19 15:03:17 cd ../stockmanager
+   91  2026-02-19 15:03:17 mvn clean package -DskipTests
+   92  2026-02-19 15:03:23 docker build -t shettymalathi113/stockmanager:latest .
+   93  2026-02-19 15:03:26 docker push shettymalathi113/stockmanager:latest
+   94  2026-02-19 15:06:57 cd ~/kubernetes_java_deployment/kubernetes
+   95  2026-02-19 15:06:57 kubectl apply -f shopfront-service.yaml
+   96  2026-02-19 15:06:58 kubectl apply -f productcatalogue-service.yaml
+   97  2026-02-19 15:06:58 kubectl apply -f stockmanager-service.yaml
+   98  2026-02-19 15:06:58 kubectl get pods
+   99  2026-02-19 15:07:03 cd ..
+  100  2026-02-19 15:07:14 kubectl apply -f shopfront-service.yaml
+  101  2026-02-19 15:07:14 kubectl apply -f productcatalogue-service.yaml
+  102  2026-02-19 15:07:15 kubectl apply -f stockmanager-service.yaml
+  103  2026-02-19 15:07:15 kubectl get pods
+  104  2026-02-19 15:07:19 ls
+  105  2026-02-19 15:08:01 cd kubernetes
+  106  2026-02-19 15:08:01 ls
+  107  2026-02-19 15:08:09 kubectl apply -f shopfront-service.yaml
+  108  2026-02-19 15:08:09 kubectl apply -f productcatalogue-service.yaml
+  109  2026-02-19 15:08:10 kubectl apply -f stockmanager-service.yaml
+  110  2026-02-19 15:08:15 kubectl get pods
+  111  2026-02-19 16:10:11 kubectl describe pod stockmanager-556f7f76c7-g4dqm
+  112  2026-02-19 16:11:16 vi stockmanager-service.yaml
+  113  2026-02-19 16:12:00 kubectl delete -f stockmanager-service.yaml
+  114  2026-02-19 16:12:01 kubectl apply -f stockmanager-service.yaml
+  115  2026-02-19 16:12:36 cd ~/kubernetes_java_deployment/kubernetes
+  116  2026-02-19 16:12:40 ls
+  117  2026-02-19 16:12:49 kubectl apply -f stockmanager-service.yaml
+  118  2026-02-19 16:12:49 kubectl get pods
+  119  2026-02-19 16:13:00 cd ../stockmanager
+  120  2026-02-19 16:13:00 mvn clean package -DskipTests
+  121  2026-02-19 16:13:07 docker build -t shettymalathi113/stockmanager:latest .
+  122  2026-02-19 16:13:10 docker push shettymalathi113/stockmanager:latest
+  123  2026-02-19 16:13:29 kubectl apply -f stockmanager-service.yaml
+  124  2026-02-19 16:13:29 kubectl get pods
+  125  2026-02-19 16:13:46 cd ~/kubernetes_java_deployment/kubernetes
+  126  2026-02-19 16:13:54 cd ..
+  127  2026-02-19 16:13:57 ls
+  128  2026-02-19 16:14:06 cd kubernetes
+  129  2026-02-19 16:14:11 kubectl apply -f stockmanager-service.yaml
+  130  2026-02-19 16:14:50 ls
+  131  2026-02-19 16:14:54 kubectl apply -f stockmanager-service.yaml
+  132  2026-02-19 16:15:03 kubectl port-forward --address 0.0.0.0 svc/productcatalogue 8090:8020
+  133  2026-02-19 16:15:56 ls
+  134  2026-02-19 16:16:00 vi stockmanager-service.yaml
+  135  2026-02-19 16:16:47 kubectl delete deployment stockmanager
+  136  2026-02-19 16:16:48 kubectl delete service stockmanager
+  137  2026-02-19 16:19:24 git pull
+  138  2026-02-19 16:19:30 kubectl apply -f shopfront-service.yaml
+  139  2026-02-19 16:19:41 kubectl get pods
+  140  2026-02-19 16:19:41 kubectl get svc shopfront
+  141  2026-02-19 16:20:02 ls
+  142  2026-02-19 16:21:15 git pull
+  143  2026-02-19 16:21:27 kubectl apply -f stockmanager-service.yaml
+  144  2026-02-19 16:21:38 kubectl get pods
+  145  2026-02-19 16:21:38 kubectl get svc
+  146  2026-02-19 16:21:50 kubectl get pods
+  147  2026-02-19 16:24:04 kubectl get svc
+  148  2026-02-19 16:24:09 curl ifconfig.me
+  149  2026-02-19 16:28:32 ssh ec2-user@15.206.146.212
+  150  2026-02-19 16:28:50 /usr/local/bin/minikube dashboard
+  151  2026-02-19 16:35:07 kubectl get svc
+  152  2026-02-19 16:36:35 minikube ip
+  153  2026-02-19 16:37:22 kubectl port-forward svc/shopfront 8010:8010 --address 0.0.0.0
+  154  2026-02-19 16:38:32 http://15.206.146.212:8020
+  155  2026-02-19 16:38:38 kubectl port-forward svc/productcatalogue 8020:8020 --address 0.0.0.0
+  156  2026-02-19 16:40:15 kubectl logs -l app=productcatalogue
+  157  2026-02-19 16:40:35 kubectl port-forward svc/productcatalogue 8020:8020 --address 0.0.0.0
+  158  2026-02-19 16:42:05 kubectl port-forward svc/shopfront 8010:8010 --address 0.0.0.0
+  159  2026-02-19 16:47:34 kubectl proxy --address='0.0.0.0' --accept-hosts='^*$'
+  160  2026-02-19 16:51:44 cd ~/praveen1994dec-kubernetes_java_deployment
+  161  2026-02-19 16:51:47 ls
+  162  2026-02-19 16:51:54 ls -a
+  163  2026-02-19 16:52:00 git status
+  164  2026-02-19 16:52:07 git remote -v
+  165  2026-02-19 16:52:37 git remote add origin git@github.com:malathi-shetty/praveen1994dec-kubernetes_java_deployment.git
+  166  2026-02-19 16:52:44 git remote set-url origin git@github.com:malathi-shetty/praveen1994dec-kubernetes_java_deployment.git
+  167  2026-02-19 16:52:51 git branch
+  168  2026-02-19 16:53:06 git pull origin main --rebase
+  169  2026-02-19 16:53:15 git add .
+  170  2026-02-19 16:53:15 git rebase --continue
+  171  2026-02-19 16:53:21 git push origin main
+  172  2026-02-19 16:54:23 history > history.txt
+  173  2026-02-19 16:54:28 history -a
+  174  2026-02-19 16:54:28 cat ~/.bash_history > history.txt
+  175  2026-02-19 16:54:37 export HISTTIMEFORMAT="%F %T "
+  176  2026-02-19 16:54:37 history > history.txt
+  177  2026-02-19 16:54:44 2026-02-19 20:05:12 git status
+  178  2026-02-19 16:54:44 2026-02-19 20:05:20 git pull origin main --rebase
+  179  2026-02-19 16:54:44 2026-02-19 20:06:10 git push origin main
+  180  2026-02-19 16:54:52 git add history.txt
+  181  2026-02-19 16:54:52 git commit -m "Added command history log"
+  182  2026-02-19 16:54:52 git push origin main
+  183  2026-02-19 16:55:41 git log --oneline --graph --decorate > history.txt
+  184  2026-02-19 16:55:45 git log > history.txt
+  185  2026-02-19 16:55:50 git log --pretty=format:"%h - %an, %ar : %s" > history.txt
+  186  2026-02-19 16:55:57 cat history.txt
+  187  2026-02-19 16:56:06 git add history.txt
+  188  2026-02-19 16:56:06 git commit -m "Added git history file"
+  189  2026-02-19 16:56:11 git pull origin main --rebase
+  190  2026-02-19 16:56:20 git push origin main
+  191  2026-02-19 16:56:34 history > history.txt
+  192  2026-02-19 16:56:39 git add history.txt
+  193  2026-02-19 16:56:39 git commit -m "Added EC2 command history"
+  194  2026-02-19 16:56:39 git push origin main
+  195  2026-02-19 16:57:16 cler
+  196  2026-02-19 16:57:22 clear
+  197  2026-02-19 16:57:28 git status
+  198  2026-02-19 16:57:47 git rebase --abort
+  199  2026-02-19 16:57:52 git status
+  200  2026-02-19 16:57:58 git pull origin main
+  201  2026-02-19 16:58:05 git push origin main
+  202  2026-02-19 16:58:17 vi kubernetes/stockmanager-service.yaml
+  203  2026-02-19 16:58:40 git add kubernetes/stockmanager-service.yaml
+  204  2026-02-19 16:58:40 git rebase --continue
+  205  2026-02-19 16:59:24 git pull origin main --no-rebase
+  206  2026-02-19 16:59:49 vi kubernetes/stockmanager-service.yaml
+  207  2026-02-19 17:06:06 git add kubernetes/stockmanager-service.yaml
+  208  2026-02-19 17:06:06 git commit -m "Resolved merge conflict in stockmanager-service.yaml"
+  209  2026-02-19 17:06:06 git push origin main
+  210  2026-02-19 17:08:37 history
+  211  2026-02-19 17:10:44 mv history.txt EC2_COMMAND_LOG.txt
+  212  2026-02-19 17:10:57 vi EC2_COMMAND_LOG.txt
+  213  2026-02-19 17:11:32 rm -rf .git
+  214  2026-02-19 17:11:36 histpry
+  215  2026-02-19 17:12:27 ls
+  216  2026-02-19 17:14:11 cat <<EOF > PROJECT_EVOLUTION.txt
+Project Evolution Summary
+
+1. Initial project setup
+   - Configured multi-module Spring Boot microservices
+   - Verified local builds using Maven
+
+2. Added Docker support
+   - Created Dockerfiles for each microservice
+   - Used Eclipse Temurin base image
+   - Built and tested container images
+
+3. Added Kubernetes manifests
+   - Created Deployment and Service YAML files
+   - Configured ClusterIP services
+   - Set correct container ports
+
+4. Configured health checks
+   - Implemented liveness and readiness probes
+   - Validated /health endpoint
+
+5. Added CI/CD pipeline
+   - Integrated GitHub with EC2
+   - Automated build and push workflow
+   - Managed Git SSH authentication
+EOF
+
+  217  2026-02-19 17:14:21 history > EC2_COMMAND_LOG.txt

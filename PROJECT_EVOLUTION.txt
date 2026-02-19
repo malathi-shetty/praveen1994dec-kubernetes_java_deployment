@@ -1,0 +1,24 @@
+Project Evolution Summary
+
+1. Initial project setup
+   - Configured multi-module Spring Boot microservices
+   - Verified local builds using Maven
+
+2. Added Docker support
+   - Created Dockerfiles for each microservice
+   - Used Eclipse Temurin base image
+   - Built and tested container images
+
+3. Added Kubernetes manifests
+   - Created Deployment and Service YAML files
+   - Configured ClusterIP services
+   - Set correct container ports
+
+4. Configured health checks
+   - Implemented liveness and readiness probes
+   - Validated /health endpoint
+
+5. Added CI/CD pipeline
+   - Integrated GitHub with EC2
+   - Automated build and push workflow
+   - Managed Git SSH authentication
